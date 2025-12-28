@@ -28,7 +28,7 @@ A webhook ingestion service built with FastAPI that receives, validates, and sto
 
 ```bash
 # Clone the repository
-git clone <https://github.com/pushpitkamboj/lyftrAI_assignment> lyftrAI_assignment
+git clone https://github.com/pushpitkamboj/lyftrAI_assignment.git
 cd lyftrAI_assignment
 
 # Set environment variables
@@ -40,6 +40,66 @@ make up
 ```
 
 That's it! The API will be running at `http://localhost:8000` 🎉
+
+### 🛠️ Setup Used
+
+> **VSCode + GitHub Copilot + Occasional Prompts**
+
+<details>
+<summary><b>Prompt for Containerizing the App</b></summary>
+
+```
+● Runs via Docker Compose using SQLite for storage.
+DB: SQLite only; DB file must live under a Docker volume (e.g. /data/app.db)
+
+understand the code and help me create 3 files
+dockerfile
+docker-compose.yml
+makefile
+
+Makefile targets:
+● make up → docker compose up -d --build
+● make down → docker compose down -v
+● make logs → docker compose logs -f api
+● make test → run your tests
+
+understand the code #file:app and write the files
+```
+
+</details>
+
+<details>
+<summary><b>Prompt for README File</b></summary>
+
+```
+create a readme file which is divided in sections
+technologies used -
+language = python
+validation = pydantic
+container = docker
+testing = pytest
+framework = fastapi
+etc
+
+then complete setup workflow
+git clone lyftrAI_assignment
+cd
+then run make up (it will do things for u :)
+then run endpoints
+GET
+POST
+whatever 4 endpoints i have ...
+u can also see the logs by running make logs if u want to...
+
+and then explain design decisions
+1. focus on explaining implementation of HMAC verification in webhook
+2. how pagination works (focus of /messages route functionality and telling the validation things and etc)
+3. explaining logging style in app, running tests with make test
+
+and then at last write contributing guidelines, write testcases etc basic stuff
+```
+
+</details>
 
 ### Available Make Commands
 
